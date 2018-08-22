@@ -1,0 +1,844 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		123231D6212A748B0085E90F /* LogWrapperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D4212A748B0085E90F /* LogWrapperKit.framework */; };
+		123231D7212A748B0085E90F /* LogWrapperKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D4212A748B0085E90F /* LogWrapperKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		123231D8212A748B0085E90F /* BeamUserNotificationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */; };
+		123231D9212A748B0085E90F /* BeamUserNotificationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		123A1440212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A143F212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift */; };
+		123A1444212B8DE000EBEA5A /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */; };
+		123A1446212B8E6400EBEA5A /* UIAlertAction+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */; };
+		123A1448212B8EFB00EBEA5A /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1447212B8EFB00EBEA5A /* Device.swift */; };
+		123A144D212BD37E00EBEA5A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A144C212BD37E00EBEA5A /* ChatViewController.swift */; };
+		123A144F212BD3D700EBEA5A /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A144E212BD3D700EBEA5A /* ChatTableViewController.swift */; };
+		123A1451212BD40B00EBEA5A /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1450212BD40B00EBEA5A /* MessageViewController.swift */; };
+		124FDC0C212A61A500633FE7 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */; };
+		124FDC0F212A621100633FE7 /* ChatClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC0E212A621100633FE7 /* ChatClient.swift */; };
+		124FDC12212A66B300633FE7 /* BTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC11212A66B300633FE7 /* BTService.swift */; };
+		128DE9D2212A87E700EE757F /* ChatServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9D1212A87E700EE757F /* ChatServiceManager.swift */; };
+		128DE9D4212A889600EE757F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9D3212A889600EE757F /* UserData.swift */; };
+		128DE9D6212A918000EE757F /* Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D5212A918000EE757F /* Hydra.framework */; };
+		128DE9D7212A918000EE757F /* Hydra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D5212A918000EE757F /* Hydra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		128DE9D9212A91B400EE757F /* SwiftEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D8212A91B400EE757F /* SwiftEventBus.framework */; };
+		128DE9DA212A91B400EE757F /* SwiftEventBus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D8212A91B400EE757F /* SwiftEventBus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		128DE9DC212A95A200EE757F /* ChatClientsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9DB212A95A200EE757F /* ChatClientsCollectionViewController.swift */; };
+		128DE9DE212A981100EE757F /* UICollectionView+BackgroundMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9DD212A981100EE757F /* UICollectionView+BackgroundMessage.swift */; };
+		128DE9E0212B6EF500EE757F /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9DF212B6EF500EE757F /* PermissionsViewController.swift */; };
+		128DE9E2212B70D700EE757F /* PrePermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9E1212B70D700EE757F /* PrePermissionsViewController.swift */; };
+		128DE9E4212B806B00EE757F /* BluToothPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9E3212B806B00EE757F /* BluToothPermissionsViewController.swift */; };
+		128DE9E6212B80EA00EE757F /* NotificationsPermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9E5212B80EA00EE757F /* NotificationsPermissionsViewController.swift */; };
+		12B82D8C212A26B6005C79F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82D8B212A26B6005C79F6 /* AppDelegate.swift */; };
+		12B82D8E212A26B6005C79F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82D8D212A26B6005C79F6 /* ViewController.swift */; };
+		12B82D91212A26B6005C79F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B82D8F212A26B6005C79F6 /* Main.storyboard */; };
+		12B82D93212A26B7005C79F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B82D92212A26B7005C79F6 /* Assets.xcassets */; };
+		12B82D96212A26B7005C79F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B82D94212A26B7005C79F6 /* LaunchScreen.storyboard */; };
+		12B82DA1212A26B7005C79F6 /* BLEChattyNativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DA0212A26B7005C79F6 /* BLEChattyNativeTests.swift */; };
+		12B82DAC212A26B7005C79F6 /* BLEChattyNativeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DAB212A26B7005C79F6 /* BLEChattyNativeUITests.swift */; };
+		12B82DBB212A2B75005C79F6 /* BluyChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DBA212A2B75005C79F6 /* BluyChat.swift */; };
+		12B82DBE212A3157005C79F6 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DBD212A3157005C79F6 /* NameViewController.swift */; };
+		12B82DC6212A3265005C79F6 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DC5212A3265005C79F6 /* PillButton.swift */; };
+		12B82DC9212A34C4005C79F6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DC8212A34C4005C79F6 /* Theme.swift */; };
+		12B82DCB212A3B35005C79F6 /* TemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DCA212A3B35005C79F6 /* TemplateView.swift */; };
+		12B82DCD212A4138005C79F6 /* String+Trimmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DCC212A4138005C79F6 /* String+Trimmed.swift */; };
+		12B82DCF212A4758005C79F6 /* AvatarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DCE212A4758005C79F6 /* AvatarCollectionViewController.swift */; };
+		12B82DD1212A48CF005C79F6 /* AvatarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD0212A48CF005C79F6 /* AvatarCollectionViewCell.swift */; };
+		12B82DD3212A49FC005C79F6 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD2212A49FC005C79F6 /* UIViewController+DismissKeyboard.swift */; };
+		12B82DD5212A4A16005C79F6 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD4212A4A16005C79F6 /* UIViewController+HideKeyboard.swift */; };
+		12B82DD7212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD6212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift */; };
+		12B82DD9212A4A9B005C79F6 /* UIView+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD8212A4A9B005C79F6 /* UIView+FirstResponder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12B82D9D212A26B7005C79F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12B82D80212A26B6005C79F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12B82D87212A26B6005C79F6;
+			remoteInfo = BLEChattyNative;
+		};
+		12B82DA8212A26B7005C79F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12B82D80212A26B6005C79F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12B82D87212A26B6005C79F6;
+			remoteInfo = BLEChattyNative;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		123231D3212A71E80085E90F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				128DE9DA212A91B400EE757F /* SwiftEventBus.framework in Embed Frameworks */,
+				128DE9D7212A918000EE757F /* Hydra.framework in Embed Frameworks */,
+				123231D9212A748B0085E90F /* BeamUserNotificationKit.framework in Embed Frameworks */,
+				123231D7212A748B0085E90F /* LogWrapperKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		123231D4212A748B0085E90F /* LogWrapperKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LogWrapperKit.framework; path = Carthage/Build/iOS/LogWrapperKit.framework; sourceTree = "<group>"; };
+		123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BeamUserNotificationKit.framework; path = Carthage/Build/iOS/BeamUserNotificationKit.framework; sourceTree = "<group>"; };
+		123A143F212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheralManager+Authorised.swift"; sourceTree = "<group>"; };
+		123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Options.swift"; sourceTree = "<group>"; };
+		123A1447212B8EFB00EBEA5A /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		123A144C212BD37E00EBEA5A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		123A144E212BD3D700EBEA5A /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
+		123A1450212BD40B00EBEA5A /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
+		124FDC0E212A621100633FE7 /* ChatClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClient.swift; sourceTree = "<group>"; };
+		124FDC11212A66B300633FE7 /* BTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTService.swift; sourceTree = "<group>"; };
+		128DE9D1212A87E700EE757F /* ChatServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatServiceManager.swift; sourceTree = "<group>"; };
+		128DE9D3212A889600EE757F /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		128DE9D5212A918000EE757F /* Hydra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hydra.framework; path = Carthage/Build/iOS/Hydra.framework; sourceTree = "<group>"; };
+		128DE9D8212A91B400EE757F /* SwiftEventBus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEventBus.framework; path = Carthage/Build/iOS/SwiftEventBus.framework; sourceTree = "<group>"; };
+		128DE9DB212A95A200EE757F /* ChatClientsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClientsCollectionViewController.swift; sourceTree = "<group>"; };
+		128DE9DD212A981100EE757F /* UICollectionView+BackgroundMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+BackgroundMessage.swift"; sourceTree = "<group>"; };
+		128DE9DF212B6EF500EE757F /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		128DE9E1212B70D700EE757F /* PrePermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrePermissionsViewController.swift; sourceTree = "<group>"; };
+		128DE9E3212B806B00EE757F /* BluToothPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluToothPermissionsViewController.swift; sourceTree = "<group>"; };
+		128DE9E5212B80EA00EE757F /* NotificationsPermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPermissionsViewController.swift; sourceTree = "<group>"; };
+		12B82D88212A26B6005C79F6 /* BLEChattyNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLEChattyNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B82D8B212A26B6005C79F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		12B82D8D212A26B6005C79F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		12B82D90212A26B6005C79F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		12B82D92212A26B7005C79F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12B82D95212A26B7005C79F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		12B82D97212A26B7005C79F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12B82D9C212A26B7005C79F6 /* BLEChattyNativeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEChattyNativeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B82DA0212A26B7005C79F6 /* BLEChattyNativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEChattyNativeTests.swift; sourceTree = "<group>"; };
+		12B82DA2212A26B7005C79F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12B82DA7212A26B7005C79F6 /* BLEChattyNativeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLEChattyNativeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12B82DAB212A26B7005C79F6 /* BLEChattyNativeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEChattyNativeUITests.swift; sourceTree = "<group>"; };
+		12B82DAD212A26B7005C79F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12B82DBA212A2B75005C79F6 /* BluyChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluyChat.swift; sourceTree = "<group>"; };
+		12B82DBD212A3157005C79F6 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		12B82DC5212A3265005C79F6 /* PillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
+		12B82DC8212A34C4005C79F6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		12B82DCA212A3B35005C79F6 /* TemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateView.swift; sourceTree = "<group>"; };
+		12B82DCC212A4138005C79F6 /* String+Trimmed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimmed.swift"; sourceTree = "<group>"; };
+		12B82DCE212A4758005C79F6 /* AvatarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewController.swift; sourceTree = "<group>"; };
+		12B82DD0212A48CF005C79F6 /* AvatarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCollectionViewCell.swift; sourceTree = "<group>"; };
+		12B82DD2212A49FC005C79F6 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		12B82DD4212A4A16005C79F6 /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
+		12B82DD6212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardDisplacer.swift"; sourceTree = "<group>"; };
+		12B82DD8212A4A9B005C79F6 /* UIView+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FirstResponder.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12B82D85212A26B6005C79F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				128DE9D9212A91B400EE757F /* SwiftEventBus.framework in Frameworks */,
+				128DE9D6212A918000EE757F /* Hydra.framework in Frameworks */,
+				123231D8212A748B0085E90F /* BeamUserNotificationKit.framework in Frameworks */,
+				123231D6212A748B0085E90F /* LogWrapperKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B82D99212A26B7005C79F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B82DA4212A26B7005C79F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		123A144B212BD36600EBEA5A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				123A144C212BD37E00EBEA5A /* ChatViewController.swift */,
+				123A144E212BD3D700EBEA5A /* ChatTableViewController.swift */,
+				123A1450212BD40B00EBEA5A /* MessageViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		124FDC0D212A61FE00633FE7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				124FDC0E212A621100633FE7 /* ChatClient.swift */,
+				128DE9D3212A889600EE757F /* UserData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		124FDC10212A668700633FE7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				124FDC11212A66B300633FE7 /* BTService.swift */,
+				128DE9D1212A87E700EE757F /* ChatServiceManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		128DE9E7212B826A00EE757F /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				128DE9E1212B70D700EE757F /* PrePermissionsViewController.swift */,
+				128DE9DF212B6EF500EE757F /* PermissionsViewController.swift */,
+				128DE9E3212B806B00EE757F /* BluToothPermissionsViewController.swift */,
+				128DE9E5212B80EA00EE757F /* NotificationsPermissionsViewController.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		128DE9E8212B827D00EE757F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DBD212A3157005C79F6 /* NameViewController.swift */,
+				12B82DCE212A4758005C79F6 /* AvatarCollectionViewController.swift */,
+				12B82DD0212A48CF005C79F6 /* AvatarCollectionViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		12B82D7F212A26B6005C79F6 = {
+			isa = PBXGroup;
+			children = (
+				128DE9D8212A91B400EE757F /* SwiftEventBus.framework */,
+				128DE9D5212A918000EE757F /* Hydra.framework */,
+				123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */,
+				123231D4212A748B0085E90F /* LogWrapperKit.framework */,
+				12B82D8A212A26B6005C79F6 /* BLEChattyNative */,
+				12B82D9F212A26B7005C79F6 /* BLEChattyNativeTests */,
+				12B82DAA212A26B7005C79F6 /* BLEChattyNativeUITests */,
+				12B82D89212A26B6005C79F6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		12B82D89212A26B6005C79F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12B82D88212A26B6005C79F6 /* BLEChattyNative.app */,
+				12B82D9C212A26B7005C79F6 /* BLEChattyNativeTests.xctest */,
+				12B82DA7212A26B7005C79F6 /* BLEChattyNativeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12B82D8A212A26B6005C79F6 /* BLEChattyNative */ = {
+			isa = PBXGroup;
+			children = (
+				12B82D8B212A26B6005C79F6 /* AppDelegate.swift */,
+				12B82D92212A26B7005C79F6 /* Assets.xcassets */,
+				12B82DC4212A3251005C79F6 /* Controls */,
+				124FDC0D212A61FE00633FE7 /* Data */,
+				12B82DC1212A31DD005C79F6 /* Extensions */,
+				12B82D97212A26B7005C79F6 /* Info.plist */,
+				12B82D94212A26B7005C79F6 /* LaunchScreen.storyboard */,
+				12B82D8F212A26B6005C79F6 /* Main.storyboard */,
+				124FDC10212A668700633FE7 /* Services */,
+				12B82DB9212A2B61005C79F6 /* StyleKit */,
+				12B82DC7212A34B3005C79F6 /* Support */,
+				12B82DBC212A3145005C79F6 /* ViewControllers */,
+			);
+			path = BLEChattyNative;
+			sourceTree = "<group>";
+		};
+		12B82D9F212A26B7005C79F6 /* BLEChattyNativeTests */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DA0212A26B7005C79F6 /* BLEChattyNativeTests.swift */,
+				12B82DA2212A26B7005C79F6 /* Info.plist */,
+			);
+			path = BLEChattyNativeTests;
+			sourceTree = "<group>";
+		};
+		12B82DAA212A26B7005C79F6 /* BLEChattyNativeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DAB212A26B7005C79F6 /* BLEChattyNativeUITests.swift */,
+				12B82DAD212A26B7005C79F6 /* Info.plist */,
+			);
+			path = BLEChattyNativeUITests;
+			sourceTree = "<group>";
+		};
+		12B82DB9212A2B61005C79F6 /* StyleKit */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DBA212A2B75005C79F6 /* BluyChat.swift */,
+			);
+			path = StyleKit;
+			sourceTree = "<group>";
+		};
+		12B82DBC212A3145005C79F6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				123A144B212BD36600EBEA5A /* Chat */,
+				128DE9E8212B827D00EE757F /* Profile */,
+				128DE9E7212B826A00EE757F /* Permissions */,
+				12B82D8D212A26B6005C79F6 /* ViewController.swift */,
+				124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */,
+				128DE9DB212A95A200EE757F /* ChatClientsCollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		12B82DC1212A31DD005C79F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DCC212A4138005C79F6 /* String+Trimmed.swift */,
+				12B82DD2212A49FC005C79F6 /* UIViewController+DismissKeyboard.swift */,
+				12B82DD4212A4A16005C79F6 /* UIViewController+HideKeyboard.swift */,
+				12B82DD6212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift */,
+				12B82DD8212A4A9B005C79F6 /* UIView+FirstResponder.swift */,
+				128DE9DD212A981100EE757F /* UICollectionView+BackgroundMessage.swift */,
+				123A143F212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift */,
+				123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */,
+				123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12B82DC4212A3251005C79F6 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DC5212A3265005C79F6 /* PillButton.swift */,
+				12B82DCA212A3B35005C79F6 /* TemplateView.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		12B82DC7212A34B3005C79F6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				12B82DC8212A34C4005C79F6 /* Theme.swift */,
+				123A1447212B8EFB00EBEA5A /* Device.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12B82D87212A26B6005C79F6 /* BLEChattyNative */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12B82DB0212A26B7005C79F6 /* Build configuration list for PBXNativeTarget "BLEChattyNative" */;
+			buildPhases = (
+				12B82D84212A26B6005C79F6 /* Sources */,
+				12B82D85212A26B6005C79F6 /* Frameworks */,
+				12B82D86212A26B6005C79F6 /* Resources */,
+				123231D3212A71E80085E90F /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLEChattyNative;
+			productName = BLEChattyNative;
+			productReference = 12B82D88212A26B6005C79F6 /* BLEChattyNative.app */;
+			productType = "com.apple.product-type.application";
+		};
+		12B82D9B212A26B7005C79F6 /* BLEChattyNativeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12B82DB3212A26B7005C79F6 /* Build configuration list for PBXNativeTarget "BLEChattyNativeTests" */;
+			buildPhases = (
+				12B82D98212A26B7005C79F6 /* Sources */,
+				12B82D99212A26B7005C79F6 /* Frameworks */,
+				12B82D9A212A26B7005C79F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12B82D9E212A26B7005C79F6 /* PBXTargetDependency */,
+			);
+			name = BLEChattyNativeTests;
+			productName = BLEChattyNativeTests;
+			productReference = 12B82D9C212A26B7005C79F6 /* BLEChattyNativeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		12B82DA6212A26B7005C79F6 /* BLEChattyNativeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12B82DB6212A26B7005C79F6 /* Build configuration list for PBXNativeTarget "BLEChattyNativeUITests" */;
+			buildPhases = (
+				12B82DA3212A26B7005C79F6 /* Sources */,
+				12B82DA4212A26B7005C79F6 /* Frameworks */,
+				12B82DA5212A26B7005C79F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12B82DA9212A26B7005C79F6 /* PBXTargetDependency */,
+			);
+			name = BLEChattyNativeUITests;
+			productName = BLEChattyNativeUITests;
+			productReference = 12B82DA7212A26B7005C79F6 /* BLEChattyNativeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12B82D80212A26B6005C79F6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Beam Communications";
+				TargetAttributes = {
+					12B82D87212A26B6005C79F6 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					12B82D9B212A26B7005C79F6 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 12B82D87212A26B6005C79F6;
+					};
+					12B82DA6212A26B7005C79F6 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 12B82D87212A26B6005C79F6;
+					};
+				};
+			};
+			buildConfigurationList = 12B82D83212A26B6005C79F6 /* Build configuration list for PBXProject "BLEChattyNative" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12B82D7F212A26B6005C79F6;
+			productRefGroup = 12B82D89212A26B6005C79F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12B82D87212A26B6005C79F6 /* BLEChattyNative */,
+				12B82D9B212A26B7005C79F6 /* BLEChattyNativeTests */,
+				12B82DA6212A26B7005C79F6 /* BLEChattyNativeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12B82D86212A26B6005C79F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B82D96212A26B7005C79F6 /* LaunchScreen.storyboard in Resources */,
+				12B82D93212A26B7005C79F6 /* Assets.xcassets in Resources */,
+				12B82D91212A26B6005C79F6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B82D9A212A26B7005C79F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B82DA5212A26B7005C79F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12B82D84212A26B6005C79F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B82DCD212A4138005C79F6 /* String+Trimmed.swift in Sources */,
+				124FDC12212A66B300633FE7 /* BTService.swift in Sources */,
+				12B82DC6212A3265005C79F6 /* PillButton.swift in Sources */,
+				128DE9D4212A889600EE757F /* UserData.swift in Sources */,
+				12B82DCF212A4758005C79F6 /* AvatarCollectionViewController.swift in Sources */,
+				128DE9DC212A95A200EE757F /* ChatClientsCollectionViewController.swift in Sources */,
+				128DE9E2212B70D700EE757F /* PrePermissionsViewController.swift in Sources */,
+				12B82DD1212A48CF005C79F6 /* AvatarCollectionViewCell.swift in Sources */,
+				124FDC0F212A621100633FE7 /* ChatClient.swift in Sources */,
+				123A144F212BD3D700EBEA5A /* ChatTableViewController.swift in Sources */,
+				128DE9E6212B80EA00EE757F /* NotificationsPermissionsViewController.swift in Sources */,
+				123A1448212B8EFB00EBEA5A /* Device.swift in Sources */,
+				12B82DD7212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift in Sources */,
+				12B82DD3212A49FC005C79F6 /* UIViewController+DismissKeyboard.swift in Sources */,
+				12B82D8E212A26B6005C79F6 /* ViewController.swift in Sources */,
+				12B82D8C212A26B6005C79F6 /* AppDelegate.swift in Sources */,
+				12B82DCB212A3B35005C79F6 /* TemplateView.swift in Sources */,
+				128DE9E4212B806B00EE757F /* BluToothPermissionsViewController.swift in Sources */,
+				124FDC0C212A61A500633FE7 /* UserCollectionViewCell.swift in Sources */,
+				12B82DBB212A2B75005C79F6 /* BluyChat.swift in Sources */,
+				123A1444212B8DE000EBEA5A /* UIViewController+Alert.swift in Sources */,
+				128DE9DE212A981100EE757F /* UICollectionView+BackgroundMessage.swift in Sources */,
+				12B82DD5212A4A16005C79F6 /* UIViewController+HideKeyboard.swift in Sources */,
+				12B82DBE212A3157005C79F6 /* NameViewController.swift in Sources */,
+				12B82DD9212A4A9B005C79F6 /* UIView+FirstResponder.swift in Sources */,
+				123A1440212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift in Sources */,
+				123A1451212BD40B00EBEA5A /* MessageViewController.swift in Sources */,
+				128DE9E0212B6EF500EE757F /* PermissionsViewController.swift in Sources */,
+				123A1446212B8E6400EBEA5A /* UIAlertAction+Options.swift in Sources */,
+				12B82DC9212A34C4005C79F6 /* Theme.swift in Sources */,
+				123A144D212BD37E00EBEA5A /* ChatViewController.swift in Sources */,
+				128DE9D2212A87E700EE757F /* ChatServiceManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B82D98212A26B7005C79F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B82DA1212A26B7005C79F6 /* BLEChattyNativeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B82DA3212A26B7005C79F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12B82DAC212A26B7005C79F6 /* BLEChattyNativeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12B82D9E212A26B7005C79F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12B82D87212A26B6005C79F6 /* BLEChattyNative */;
+			targetProxy = 12B82D9D212A26B7005C79F6 /* PBXContainerItemProxy */;
+		};
+		12B82DA9212A26B7005C79F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12B82D87212A26B6005C79F6 /* BLEChattyNative */;
+			targetProxy = 12B82DA8212A26B7005C79F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12B82D8F212A26B6005C79F6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12B82D90212A26B6005C79F6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		12B82D94212A26B7005C79F6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12B82D95212A26B7005C79F6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12B82DAE212A26B7005C79F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		12B82DAF212A26B7005C79F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12B82DB1212A26B7005C79F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = BLEChattyNative/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beamcommunications.BLEChattyNative;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12B82DB2212A26B7005C79F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = BLEChattyNative/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beamcommunications.BLEChattyNative;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		12B82DB4212A26B7005C79F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				INFOPLIST_FILE = BLEChattyNativeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beamcommunications.BLEChattyNativeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLEChattyNative.app/BLEChattyNative";
+			};
+			name = Debug;
+		};
+		12B82DB5212A26B7005C79F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				INFOPLIST_FILE = BLEChattyNativeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beamcommunications.BLEChattyNativeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLEChattyNative.app/BLEChattyNative";
+			};
+			name = Release;
+		};
+		12B82DB7212A26B7005C79F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				INFOPLIST_FILE = BLEChattyNativeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beamcommunications.BLEChattyNativeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BLEChattyNative;
+			};
+			name = Debug;
+		};
+		12B82DB8212A26B7005C79F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 337Z8P6WA4;
+				INFOPLIST_FILE = BLEChattyNativeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beamcommunications.BLEChattyNativeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BLEChattyNative;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12B82D83212A26B6005C79F6 /* Build configuration list for PBXProject "BLEChattyNative" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12B82DAE212A26B7005C79F6 /* Debug */,
+				12B82DAF212A26B7005C79F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12B82DB0212A26B7005C79F6 /* Build configuration list for PBXNativeTarget "BLEChattyNative" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12B82DB1212A26B7005C79F6 /* Debug */,
+				12B82DB2212A26B7005C79F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12B82DB3212A26B7005C79F6 /* Build configuration list for PBXNativeTarget "BLEChattyNativeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12B82DB4212A26B7005C79F6 /* Debug */,
+				12B82DB5212A26B7005C79F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12B82DB6212A26B7005C79F6 /* Build configuration list for PBXNativeTarget "BLEChattyNativeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12B82DB7212A26B7005C79F6 /* Debug */,
+				12B82DB8212A26B7005C79F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12B82D80212A26B6005C79F6 /* Project object */;
+}
