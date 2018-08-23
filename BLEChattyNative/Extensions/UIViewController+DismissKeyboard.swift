@@ -28,7 +28,7 @@ extension UIViewController {
 				guard !isInstalled else {
 					return
 				}
-				let recognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+				let recognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardLater))
 				recognizer.cancelsTouchesInView = false
 				view.addGestureRecognizer(recognizer)
 				
@@ -47,6 +47,12 @@ extension UIViewController {
 				return false
 			}
 			return true
+		}
+	}
+	
+	@objc private func hideKeyboardLater() {
+		DispatchQueue.main.async {
+			self.hideKeyboard()
 		}
 	}
 	

@@ -18,18 +18,18 @@ enum ChatServiceManagerError: String, Error, CustomStringConvertible {
 	}
 }
 
-extension NSNotification.Name {
-	static let CSMessageDelivered = NSNotification.Name(rawValue: "ChatService.messageDelivered")
-}
-
-struct ChatServiceManagerKey {
-	static let message = "Key.chatService.message"
-	static let device = "Key.chatService.device"
-}
-
 // This is the application level manager, it monitors aspects of the BlueTooth service
 // it needs and makes updates as required
 class ChatServiceManager: NSObject {
+	
+	static let MessageDelivered = NSNotification.Name(rawValue: "ChatService.messageDelivered")
+	static let MessageRecieved = NSNotification.Name(rawValue: "ChatService.messageRecieved")
+	
+	struct MessageKeys {
+		static let message = "Key.message"
+		static let client = "Key.client"
+	}
+	
 	static let shared: ChatServiceManager = ChatServiceManager()
 
 	static let SERVICE_UUID = CBUUID(string: "4DF91029-B356-463E-9F48-BAB077BF3EF5")
@@ -41,6 +41,7 @@ class ChatServiceManager: NSObject {
 		super.init()
 		NotificationCenter.default.addObserver(self, selector: #selector(peripherialManagerStateChanged), name: .BTPeripherialManagerDidUpdateState, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(peripherialDidConnect), name: .BTPeripherialDidConnect, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(didReceiveWrite), name: .BTPeripherialManagerDidReceiveWrite, object: nil)
 	}
 	
 	func start() {
@@ -56,6 +57,14 @@ class ChatServiceManager: NSObject {
 		log(debug: "")
 		BTService.shared.stopPeripheralManager()
 		BTService.shared.stopCentralManager()
+	}
+	
+	func startScanning() {
+		BTService.shared.startScanning()
+	}
+	
+	func stopScanning() {
+		BTService.shared.stopScanning()
 	}
 	
 //	func displayName(for device: Device) -> String {
@@ -164,6 +173,46 @@ class ChatServiceManager: NSObject {
 		device.peripheral.delegate = self
 		manager.connect(device.peripheral, options: nil)
 	}
+	
+	
+	@objc func didReceiveWrite(_ notification: Notification) {
+		log(debug: "")
+		guard Thread.isMainThread else {
+			DispatchQueue.main.async {
+				self.didReceiveWrite(notification)
+			}
+			return
+		}
+		guard let userInfo = notification.userInfo else {
+			log(debug: "didReceiveWrite notification without userInfo")
+			return
+		}
+		guard let messageDevice = userInfo[BTNotificationKey.device] as? ChatClient else {
+			log(debug: "didReceiveWrite notification without device")
+			return
+		}
+		guard let data = userInfo[BTNotificationKey.request] as? Data else {
+			log(debug: "didReceiveWrite notification without data")
+			return
+		}
+		guard let text = String(data: data, encoding: .utf8) else {
+			log(debug: "didReceiveWrite unable to decode data as text")
+			return
+		}
+		
+		let incomingMessage = IncomingMessage(client: messageDevice, text: text)
+		let messageInfo = [MessageKeys.message: incomingMessage]
+		NotificationCenter.default.post(name: ChatServiceManager.MessageRecieved, object: nil, userInfo: messageInfo)
+//
+//		let name = messageDevice.displayName
+//
+//		log(debug: "Message = \(text);\n\tfrom: \(name)")
+//
+//		NotificationServiceManager.shared.add(identifier: UUID().uuidString,
+//																					title: "\(name) said", body: text).catch { (error) -> (Void) in
+//																						log(debug: "Failed to deliver notification \(error)")
+//		}
+	}
 }
 
 extension ChatServiceManager: CBPeripheralDelegate {
@@ -232,11 +281,16 @@ extension ChatServiceManager: CBPeripheralDelegate {
 			peripheral.writeValue(data, for: characteristic, type: CBCharacteristicWriteType.withResponse)
 		}
 		removeFirstMessage(for: peripheral)
+		guard let client = BTService.shared.client(for: peripheral) else {
+			return
+		}
+		let text = String(data: data, encoding: .utf8)!
+		let message = DefaultMessage(text: text, direction: .outgoing, status: .delivered)
 		let userInfo: [String: Any] = [
-			ChatServiceManagerKey.device: device,
-			ChatServiceManagerKey.message: data
+			MessageKeys.client: client,
+			MessageKeys.message: message
 		]
-		NotificationCenter.default.post(name: .CSMessageDelivered, object: nil, userInfo: userInfo)
+		NotificationCenter.default.post(name: ChatServiceManager.MessageDelivered, object: nil, userInfo: userInfo)
 		
 		guard !hasMoreMessages(for: peripheral) else {
 			return

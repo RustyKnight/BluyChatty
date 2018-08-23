@@ -19,6 +19,13 @@
 		123A144F212BD3D700EBEA5A /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A144E212BD3D700EBEA5A /* ChatTableViewController.swift */; };
 		123A1451212BD40B00EBEA5A /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1450212BD40B00EBEA5A /* MessageViewController.swift */; };
 		123A1453212E2E5F00EBEA5A /* KeyboadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1452212E2E5F00EBEA5A /* KeyboadHelper.swift */; };
+		123A1455212E4CAE00EBEA5A /* IncomingMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1454212E4CAE00EBEA5A /* IncomingMessageTableViewCell.swift */; };
+		123A1457212E584800EBEA5A /* OutgoingMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1456212E584800EBEA5A /* OutgoingMessageTableViewCell.swift */; };
+		123A1459212E599100EBEA5A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1458212E599100EBEA5A /* Message.swift */; };
+		123A145B212E977B00EBEA5A /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A145A212E977B00EBEA5A /* Animator.swift */; };
+		123A145D212E97AA00EBEA5A /* DurationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A145C212E97AA00EBEA5A /* DurationAnimator.swift */; };
+		123A145F212E97EC00EBEA5A /* LinearAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A145E212E97EC00EBEA5A /* LinearAnimator.swift */; };
+		123A1461212E981F00EBEA5A /* Range+Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1460212E981F00EBEA5A /* Range+Animator.swift */; };
 		124FDC0C212A61A500633FE7 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */; };
 		124FDC0F212A621100633FE7 /* ChatClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC0E212A621100633FE7 /* ChatClient.swift */; };
 		124FDC12212A66B300633FE7 /* BTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC11212A66B300633FE7 /* BTService.swift */; };
@@ -100,6 +107,13 @@
 		123A144E212BD3D700EBEA5A /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		123A1450212BD40B00EBEA5A /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		123A1452212E2E5F00EBEA5A /* KeyboadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboadHelper.swift; sourceTree = "<group>"; };
+		123A1454212E4CAE00EBEA5A /* IncomingMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessageTableViewCell.swift; sourceTree = "<group>"; };
+		123A1456212E584800EBEA5A /* OutgoingMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessageTableViewCell.swift; sourceTree = "<group>"; };
+		123A1458212E599100EBEA5A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		123A145A212E977B00EBEA5A /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		123A145C212E97AA00EBEA5A /* DurationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationAnimator.swift; sourceTree = "<group>"; };
+		123A145E212E97EC00EBEA5A /* LinearAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearAnimator.swift; sourceTree = "<group>"; };
+		123A1460212E981F00EBEA5A /* Range+Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Animator.swift"; sourceTree = "<group>"; };
 		124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		124FDC0E212A621100633FE7 /* ChatClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClient.swift; sourceTree = "<group>"; };
 		124FDC11212A66B300633FE7 /* BTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTService.swift; sourceTree = "<group>"; };
@@ -175,6 +189,8 @@
 				123A144C212BD37E00EBEA5A /* ChatViewController.swift */,
 				123A144E212BD3D700EBEA5A /* ChatTableViewController.swift */,
 				123A1450212BD40B00EBEA5A /* MessageViewController.swift */,
+				123A1454212E4CAE00EBEA5A /* IncomingMessageTableViewCell.swift */,
+				123A1456212E584800EBEA5A /* OutgoingMessageTableViewCell.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -184,6 +200,7 @@
 			children = (
 				124FDC0E212A621100633FE7 /* ChatClient.swift */,
 				128DE9D3212A889600EE757F /* UserData.swift */,
+				123A1458212E599100EBEA5A /* Message.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -312,6 +329,7 @@
 				123A143F212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift */,
 				123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */,
 				123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */,
+				123A1460212E981F00EBEA5A /* Range+Animator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +349,9 @@
 				12B82DC8212A34C4005C79F6 /* Theme.swift */,
 				123A1447212B8EFB00EBEA5A /* Device.swift */,
 				123A1452212E2E5F00EBEA5A /* KeyboadHelper.swift */,
+				123A145A212E977B00EBEA5A /* Animator.swift */,
+				123A145C212E97AA00EBEA5A /* DurationAnimator.swift */,
+				123A145E212E97EC00EBEA5A /* LinearAnimator.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -481,7 +502,10 @@
 				128DE9E2212B70D700EE757F /* PrePermissionsViewController.swift in Sources */,
 				12B82DD1212A48CF005C79F6 /* AvatarCollectionViewCell.swift in Sources */,
 				124FDC0F212A621100633FE7 /* ChatClient.swift in Sources */,
+				123A1457212E584800EBEA5A /* OutgoingMessageTableViewCell.swift in Sources */,
+				123A1461212E981F00EBEA5A /* Range+Animator.swift in Sources */,
 				123A144F212BD3D700EBEA5A /* ChatTableViewController.swift in Sources */,
+				123A145F212E97EC00EBEA5A /* LinearAnimator.swift in Sources */,
 				128DE9E6212B80EA00EE757F /* NotificationsPermissionsViewController.swift in Sources */,
 				123A1448212B8EFB00EBEA5A /* Device.swift in Sources */,
 				12B82DD7212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift in Sources */,
@@ -492,6 +516,7 @@
 				128DE9E4212B806B00EE757F /* BluToothPermissionsViewController.swift in Sources */,
 				124FDC0C212A61A500633FE7 /* UserCollectionViewCell.swift in Sources */,
 				12B82DBB212A2B75005C79F6 /* BluyChat.swift in Sources */,
+				123A1459212E599100EBEA5A /* Message.swift in Sources */,
 				123A1453212E2E5F00EBEA5A /* KeyboadHelper.swift in Sources */,
 				123A1444212B8DE000EBEA5A /* UIViewController+Alert.swift in Sources */,
 				128DE9DE212A981100EE757F /* UICollectionView+BackgroundMessage.swift in Sources */,
@@ -499,7 +524,10 @@
 				12B82DBE212A3157005C79F6 /* NameViewController.swift in Sources */,
 				12B82DD9212A4A9B005C79F6 /* UIView+FirstResponder.swift in Sources */,
 				123A1440212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift in Sources */,
+				123A1455212E4CAE00EBEA5A /* IncomingMessageTableViewCell.swift in Sources */,
+				123A145D212E97AA00EBEA5A /* DurationAnimator.swift in Sources */,
 				123A1451212BD40B00EBEA5A /* MessageViewController.swift in Sources */,
+				123A145B212E977B00EBEA5A /* Animator.swift in Sources */,
 				128DE9E0212B6EF500EE757F /* PermissionsViewController.swift in Sources */,
 				123A1446212B8E6400EBEA5A /* UIAlertAction+Options.swift in Sources */,
 				12B82DC9212A34C4005C79F6 /* Theme.swift in Sources */,

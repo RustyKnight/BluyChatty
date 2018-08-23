@@ -9,6 +9,10 @@
 import Foundation
 import CoreBluetooth
 
+func == (lhs: ChatClient, rhs: ChatClient) -> Bool{
+	return lhs.peripheral.identifier == rhs.peripheral.identifier
+}
+
 protocol ChatClient {
 	var displayName: String { get }
 	var avatar: String { get }

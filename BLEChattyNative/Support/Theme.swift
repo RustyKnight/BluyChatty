@@ -18,6 +18,8 @@ public struct Theme {
 	
 	private static let black =  UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 	private static let white =  UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+	
+	static let outgoingMessageBackground: UIColor = UIColor(red: 0.604, green: 0.871, blue: 0.644, alpha: 1.0)
 
 	static func applyPrimaryTheme() {
 		UILabel.appearance().textColor = Theme.foreground

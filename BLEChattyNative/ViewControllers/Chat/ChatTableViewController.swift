@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import LogWrapperKit
 
 class ChatTableViewController: UITableViewController {
 	
 	var keyboardHelper: KeyboardHelper = KeyboardHelper()
+	var messages: [Message] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -44,33 +46,35 @@ class ChatTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		// #warning Incomplete implementation, return the number of rows
-		return 100
+		log(debug: "messages.count = \(messages.count)")
+		return messages.count
 	}
 	
 
 	open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
-		cell.textLabel?.text = "Test \(indexPath.row)"
-		return cell
+		let message = messages[indexPath.row]
+		log(debug: "...")
+		if message.direction == .outgoing {
+			log(debug: "outgoing")
+			let identifier = "Cell.outgoing"
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? OutgoingMessageTableViewCell else {
+				fatalError("You screwed up")
+			}
+			cell.configure(with: message)
+			cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+			return cell
+		} else if message.direction == .incoming {
+			log(debug: "incoming")
+			let identifier = "Cell.incoming"
+			guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? IncomingMessageTableViewCell else {
+				fatalError("You screwed up")
+			}
+			cell.configure(with: message)
+			cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+			return cell
+		}
+		fatalError("You screwed up")
 	}
-	
-//	open override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//		guard let view = super.tableView(tableView, viewForFooterInSection: section) else {
-//			return nil
-//		}
-//		view.transform = CGAffineTransform(scaleX: 1, y: -1)
-//		return view
-//	}
-//
-//	open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//		guard let view = super.tableView(tableView, viewForHeaderInSection: section) else {
-//			return nil
-//		}
-//		view.transform = CGAffineTransform(scaleX: 1, y: -1)
-//		return view
-//	}
 	
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 0.00001
@@ -87,10 +91,6 @@ class ChatTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return UIView(frame: CGRect.zero)
 	}
-	
-//	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//		tableView.deselectRow(at: indexPath, animated: false)
-//	}
 	
 	override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
 		return false
@@ -171,15 +171,7 @@ class ChatTableViewController: UITableViewController {
 extension ChatTableViewController: KeyboardHelperDelegate {
 	
 	func keyboardStateChanged(with event: KeyboardEvent) {
-//		guard let duration = event.duration, let curve = event.curve else {
-//			self.updateMessageEntryPosition()
-//			return
-//		}
-//		UIView.animate(withDuration: duration, delay: 0, options: [curve], animations: {
-//			self.updateMessageEntryPosition()
-//			self.view.layoutIfNeeded()
-//		}) { (completed) in
-//		}
+		//...Change insets/offsets?
 	}
 	
 	func keyboardWillHide(with event: KeyboardEvent) {
@@ -190,4 +182,26 @@ extension ChatTableViewController: KeyboardHelperDelegate {
 		keyboardStateChanged(with: event)
 	}
 
+}
+
+extension ChatTableViewController {
+	
+	func add(_ message: Message) {
+		messages.insert(message, at: 0)
+		let indicies = [IndexPath(row: 0, section: 0)]
+		tableView.insertRows(at: indicies, with: .automatic)
+	}
+	
+	func update(_ message: Message) {
+		guard let index = indexOf(message) else {
+			return
+		}
+		messages[index] = message
+		let indicies = [IndexPath(row: index, section: 0)]
+		tableView.reloadRows(at: indicies, with: .fade)
+	}
+	
+	func indexOf(_ message: Message) -> Int? {
+		return messages.firstIndex(where: { $0.text == message.text && $0.direction == message.direction })
+	}
 }

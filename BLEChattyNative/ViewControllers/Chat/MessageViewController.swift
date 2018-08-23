@@ -19,12 +19,15 @@ class MessageViewController: UIViewController {
 	
 	var currentInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 	
+	var delegate: MessageDelegate?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		dismissKeyboardOnTap = false
 		keyboardHelper.delegate = self
 		keyboardHelper.isInstalled = true
 		bottomConstraint.constant = currentInsets.bottom + 8
@@ -37,6 +40,12 @@ class MessageViewController: UIViewController {
 	}
 
 	@IBAction func sendMessage(_ sender: Any) {
+		log(debug: "")
+		guard let text = messageTextField.text, !text.trimmed.isEmpty else {
+			return
+		}
+		messageTextField.text = nil
+		delegate?.send(message: text)
 	}
 }
 

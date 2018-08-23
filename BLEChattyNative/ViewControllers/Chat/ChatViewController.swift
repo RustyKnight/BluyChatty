@@ -8,6 +8,11 @@
 
 import UIKit
 import LogWrapperKit
+import BeamUserNotificationKit
+
+protocol MessageDelegate {
+	func send(message: String)
+}
 
 class ChatViewController: UIViewController {
 	
@@ -18,6 +23,8 @@ class ChatViewController: UIViewController {
 
 	var currentInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 	
+	var client: ChatClient!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
@@ -25,30 +32,20 @@ class ChatViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		title = "\(client.avatar) \(client.displayName)"
+		
 		dismissKeyboardOnTap = true
 		displaceOnKeyboard = true
 		
 		keyboardHelper.delegate = self
 		keyboardHelper.isInstalled = true
+
+		NotificationCenter.default.addObserver(self, selector: #selector(messageWasRecieved), name: ChatServiceManager.MessageRecieved, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(messageWasDelivered), name: ChatServiceManager.MessageDelivered, object: nil)
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-//		let bounds = messageViewController.view.bounds
-//		let leftOver = bounds.height - currentInsets.bottom
-//
-//		log(debug: "Left over = \(leftOver)")
-//
-//		chatTableViewController.tableView.contentInset.top = leftOver + 8
-//
-//		DispatchQueue.global(qos: .userInitiated).async {
-//			Thread.sleep(forTimeInterval: 1.0)
-//			DispatchQueue.main.async {
-//				self.chatTableViewController.scrollToBottom(animated: true, then: {
-//					log(debug: "Done")
-//				})
-//			}
-//		}
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
@@ -58,6 +55,8 @@ class ChatViewController: UIViewController {
 		
 		keyboardHelper.isInstalled = false
 		keyboardHelper.delegate = nil
+		
+		NotificationCenter.default.removeObserver(self)
 	}
 	
 	private var isFirstLayout = true
@@ -96,6 +95,7 @@ class ChatViewController: UIViewController {
 			}
 			messageViewController = controller
 			messageViewController.currentInsets = currentInsets
+			messageViewController.delegate = self
 		} else if segue.identifier == "Segue.conversation" {
 			guard let controller = destination as? ChatTableViewController else {
 				return
@@ -151,4 +151,71 @@ extension ChatViewController: KeyboardHelperDelegate {
 																with: event)
 	}
 	
+	// MARK: - Notification
+	
+	@objc func messageWasRecieved(_ notification: Notification) {
+		log(debug: "")
+		guard Thread.isMainThread else {
+			DispatchQueue.main.async {
+				self.messageWasRecieved(notification)
+			}
+			return
+		}
+		guard let userInfo = notification.userInfo else {
+			log(debug: "didReceiveWrite notification without userInfo")
+			return
+		}
+		guard let message = userInfo[ChatServiceManager.MessageKeys.message] as? IncomingMessage else {
+			log(debug: "didReceiveWrite notification without device")
+			return
+		}
+		
+		if message.client == client {
+			
+		} else {
+			let name = message.client.displayName
+			let text = message.text
+			
+			log(debug: "Message = \(text);\n\tfrom: \(name)")
+			
+			NotificationServiceManager.shared.add(identifier: UUID().uuidString,
+																						title: "\(name) said", body: text).catch { (error) -> (Void) in
+																							log(debug: "Failed to deliver notification \(error)")
+			}
+		}
+	}
+	
+	@objc func messageWasDelivered(_ notification: Notification) {
+		log(debug: "")
+		guard Thread.isMainThread else {
+			DispatchQueue.main.async {
+				self.messageWasRecieved(notification)
+			}
+			return
+		}
+		guard let userInfo = notification.userInfo else {
+			log(debug: "didReceiveWrite notification without userInfo")
+			return
+		}
+		guard let message = userInfo[ChatServiceManager.MessageKeys.message] as? Message else {
+			log(debug: "didReceiveWrite notification without device")
+			return
+		}
+		chatTableViewController.update(message)
+	}
+
+}
+
+extension ChatViewController: MessageDelegate {
+	func send(message: String) {
+		var msg = DefaultMessage(text: message, direction: .outgoing, status: .sending)
+		chatTableViewController.add(msg)
+		do {
+			try client.write(message: message)
+		} catch (let error) {
+			log(error: "Failed to write message: \(error)")
+			msg = DefaultMessage(text: message, direction: .outgoing, status: .failed)
+			chatTableViewController.update(msg)
+		}
+	}
 }

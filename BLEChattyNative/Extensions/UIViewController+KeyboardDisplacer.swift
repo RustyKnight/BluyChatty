@@ -12,7 +12,6 @@ import LogWrapperKit
 
 // I'm not a fan of this, but this will allow us to maintain state beyond the capabailities of the the extension API
 fileprivate var cache = NSHashTable<UIViewController>(options: .weakMemory)
-//	NSMapTable<UIViewController, UITapGestureRecognizer>(keyOptions: .weakMemory, valueOptions: .weakMemory)
 
 extension UIViewController {
 	

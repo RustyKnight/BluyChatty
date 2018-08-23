@@ -33,7 +33,7 @@ class PrePermissionsViewController: UIViewController {
 		UNUserNotificationCenter.current().settings().then(in: .main) { (settings) in
 			self.notificationsRequiresAuthorisation = settings.authorizationStatus == .notDetermined
 		}.then(in: .main) { () in
-			UIView.animate(withDuration: 0.3, animations: {
+			UIView.animate(withDuration: 0.3, delay: 0.0, options: [UIView.AnimationOptions.curveEaseInOut], animations: {
 				self.verticalCenterConstraint.isActive = false
 				self.topAlignConstraint.isActive = true
 				self.view.setNeedsLayout()

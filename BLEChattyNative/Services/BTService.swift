@@ -11,6 +11,7 @@ import CoreBluetooth
 import LogWrapperKit
 
 extension NSNotification.Name {
+	public static let BTStateChanged: NSNotification.Name = NSNotification.Name("BT.stateChanged")
 	public static let BTNewPeripherialDiscovered: NSNotification.Name = NSNotification.Name("BT.newPeripherialDiscovered")
 	public static let BTPeripherialUpdated: NSNotification.Name = NSNotification.Name("BT.peripherialUpdated")
 	public static let BTPeripherialDidConnect: NSNotification.Name = NSNotification.Name("BT.peripherialDidConnect")
@@ -24,6 +25,7 @@ struct BTNotificationKey {
 	static let request = "BT.key.request"
 	static let peripheral = "BT.key.peripheral"
 	static let peripheralState = "BT.key.PeripheralState"
+	static let managerState = "BT.key.managerState"
 }
 
 class DefaultChatClient: ChatClient {
@@ -93,6 +95,10 @@ class BTService: NSObject {
 		super.init()
 	}
 	
+	func client(for peripheral: CBPeripheral) -> ChatClient? {
+		return deviceCache[peripheral.identifier]
+	}
+	
 	func startCentralManager(queue: DispatchQueue? = nil) {
 		log(debug: "")
 		stopCentralManager()
@@ -116,6 +122,26 @@ class BTService: NSObject {
 		self.centralManager = nil
 	}
 	
+	func stopScanning() {
+		guard let manager = centralManager else {
+			return
+		}
+		log(debug: "")
+		if manager.state == .poweredOn {
+			manager.stopScan()
+		}
+	}
+	
+	func startScanning() {
+		guard let manager = centralManager else {
+			return
+		}
+		log(debug: "")
+		if manager.state == .poweredOn {
+			manager.scanForPeripherals(withServices: scanPeripheralServices, options: scanPeripheralOptions)
+		}
+	}
+	
 	func stopPeripheralManager() {
 		guard let manager = peripheralManager else {
 			return
@@ -137,14 +163,19 @@ extension BTService: CBCentralManagerDelegate {
 	// MARK: CBCentralManagerDelegate
 	
 	func centralManagerDidUpdateState(_ central: CBCentralManager) {
-		guard central.state == .poweredOn else {
-			return
-		}
-		guard let manager = centralManager else {
-			return
-		}
-		log(debug: "")
-		manager.scanForPeripherals(withServices: scanPeripheralServices, options: scanPeripheralOptions)
+		let state = central.state
+		let userInfo = [BTNotificationKey.managerState: state]
+		NotificationCenter.default.post(name: .BTStateChanged, object: nil, userInfo: userInfo)
+		
+		// Probably generate a state notification
+//		guard central.state == .poweredOn else {
+//			return
+//		}
+//		guard let manager = centralManager else {
+//			return
+//		}
+//		log(debug: "")
+//		manager.scanForPeripherals(withServices: scanPeripheralServices, options: scanPeripheralOptions)
 	}
 	
 	func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {

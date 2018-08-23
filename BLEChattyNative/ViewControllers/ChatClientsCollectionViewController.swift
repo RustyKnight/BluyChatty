@@ -11,12 +11,14 @@ import LogWrapperKit
 import UserNotifications
 import BeamUserNotificationKit
 import Hydra
+import CoreBluetooth
 
 private let reuseIdentifier = "Cell.user"
 
 class ChatClientsCollectionViewController: UICollectionViewController {
 	
 	var chatClients: [ChatClient] = []
+	var selectedChatClient: ChatClient?
 	
 	var updateTimer: Timer?
 	
@@ -24,6 +26,9 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 		super.viewDidLoad()
 		self.navigationController?.viewControllers = [self]
 		navigationItem.setHidesBackButton(true, animated: false)
+		
+		displaceOnKeyboard = false
+		dismissKeyboardOnTap = false
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +49,7 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 			timer.invalidate()
 		}
 		updateTimer = nil
+		removeMessagingNotifications()
 	}
 	
 	func scheduleCleanUpTimer() {
@@ -52,6 +58,15 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 			self.updateTimer = nil
 		}
 		updateTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.cleanUp), userInfo: nil, repeats: true)
+	}
+	
+	func update(_ client: ChatClient) {
+		guard let index = indexOf(client) else {
+			// 😳 Should we add them?!
+			return
+		}
+		let indicies: [IndexPath] = [IndexPath(row: index, section: 0)]
+//		collectionView.reloadItems(at: indicies)
 	}
 	
 	@objc func cleanUp() {
@@ -83,16 +98,17 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 
 	func addMessagingNotifications() {
 		log(debug: "")
+		NotificationCenter.default.addObserver(self, selector: #selector(bluToothStateChanged), name: .BTStateChanged, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(newPeripheralDiscovered), name: .BTNewPeripherialDiscovered, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(peripheralUpdated), name: .BTPeripherialUpdated, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(didReceiveWrite), name: .BTPeripherialManagerDidReceiveWrite, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(messageWasRecieved), name: ChatServiceManager.MessageRecieved, object: nil)
 	}
 	
 	func removeMessagingNotifications() {
 		log(debug: "")
 		NotificationCenter.default.removeObserver(self, name: .BTNewPeripherialDiscovered, object: nil)
 		NotificationCenter.default.removeObserver(self, name: .BTPeripherialUpdated, object: nil)
-		NotificationCenter.default.removeObserver(self, name: .BTPeripherialManagerDidReceiveWrite, object: nil)
+		NotificationCenter.default.removeObserver(self, name: ChatServiceManager.MessageRecieved, object: nil)
 	}
 	
 	// MARK: - Application support
@@ -108,7 +124,25 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 	}
 	
 	// MARK: - Chat support
-	
+
+	@objc func bluToothStateChanged(_ notification: NSNotification) {
+		guard let userInfo = notification.userInfo else {
+			return
+		}
+		guard let state = userInfo[BTNotificationKey.managerState] as? CBManagerState else {
+			return
+		}
+		
+		switch state {
+		case .poweredOn:
+			log(debug :"Start scanning")
+			ChatServiceManager.shared.startScanning()
+		default:
+			log(debug :"Stop scanning")
+			ChatServiceManager.shared.stopScanning()
+		}
+	}
+
 	func processDevice(notification: NSNotification) {
 		guard Thread.isMainThread else {
 			DispatchQueue.main.async {
@@ -116,6 +150,7 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 			}
 			return
 		}
+		log(debug: "")
 		guard let userInfo = notification.userInfo else {
 			log(debug: "No user info in notification")
 			return
@@ -126,6 +161,7 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 		}
 		
 		guard !contains(device) else {
+			update(device)
 			return
 		}
 		chatClients.append(device)
@@ -144,11 +180,11 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 		processDevice(notification: notification)
 	}
 	
-	@objc func didReceiveWrite(_ notification: Notification) {
+	@objc func messageWasRecieved(_ notification: Notification) {
 		log(debug: "")
 		guard Thread.isMainThread else {
 			DispatchQueue.main.async {
-				self.didReceiveWrite(notification)
+				self.messageWasRecieved(notification)
 			}
 			return
 		}
@@ -156,20 +192,13 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 			log(debug: "didReceiveWrite notification without userInfo")
 			return
 		}
-		guard let messageDevice = userInfo[BTNotificationKey.device] as? ChatClient else {
+		guard let message = userInfo[ChatServiceManager.MessageKeys.message] as? IncomingMessage else {
 			log(debug: "didReceiveWrite notification without device")
 			return
 		}
-		guard let data = userInfo[BTNotificationKey.request] as? Data else {
-			log(debug: "didReceiveWrite notification without data")
-			return
-		}
-		guard let text = String(data: data, encoding: .utf8) else {
-			log(debug: "didReceiveWrite unable to decode data as text")
-			return
-		}
 		
-		let name = messageDevice.displayName
+		let name = message.client.displayName
+		let text = message.text
 		
 		log(debug: "Message = \(text);\n\tfrom: \(name)")
 		
@@ -181,6 +210,7 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		log(debug: "")
 		if segue.identifier == "Segue.chat" {
 			guard let controller = segue.destination as? ChatViewController else {
 				return
@@ -190,6 +220,8 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 			} else {
 				controller.currentInsets = view.layoutMargins
 			}
+			
+			controller.client = selectedChatClient!
 			
 		}
 	}
@@ -222,6 +254,8 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 	// MARK: UICollectionViewDelegate
 	
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		log(debug: "")
+		selectedChatClient = chatClients[indexPath.row]
 		performSegue(withIdentifier: "Segue.chat", sender: self)
 	}
 	
