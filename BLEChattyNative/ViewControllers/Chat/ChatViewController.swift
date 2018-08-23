@@ -14,6 +14,8 @@ class ChatViewController: UIViewController {
 	var messageViewController: MessageViewController!
 	var chatTableViewController: ChatTableViewController!
 
+	var keyboardHelper: KeyboardHelper = KeyboardHelper()
+
 	var currentInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 	
 	override func viewDidLoad() {
@@ -25,6 +27,9 @@ class ChatViewController: UIViewController {
 		
 		dismissKeyboardOnTap = true
 		displaceOnKeyboard = true
+		
+		keyboardHelper.delegate = self
+		keyboardHelper.isInstalled = true
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +55,9 @@ class ChatViewController: UIViewController {
 		super.viewDidDisappear(animated)
 		dismissKeyboardOnTap = false
 		displaceOnKeyboard = false
+		
+		keyboardHelper.isInstalled = false
+		keyboardHelper.delegate = nil
 	}
 	
 	private var isFirstLayout = true
@@ -106,5 +114,41 @@ class ChatViewController: UIViewController {
 	// Pass the selected object to the new view controller.
 	}
 	*/
+	
+}
+
+
+extension ChatViewController: KeyboardHelperDelegate {
+	
+	func changeTableViewContentInset(_ inset: CGFloat, offset: CGFloat, with event: KeyboardEvent) {
+		guard let duration = event.duration, let curve = event.curve else {
+			chatTableViewController.tableView.contentInset.top += inset
+			return
+		}
+		chatTableViewController.tableView.contentInset.top += inset
+		self.chatTableViewController.tableView.contentOffset.y += offset
+		UIView.animate(withDuration: duration, delay: 0, options: [curve], animations: {
+			self.view.layoutIfNeeded()
+		}) { (completed) in
+		}
+	}
+	
+	func keyboardWillShow(with event: KeyboardEvent) {
+		let safeInsets = view.safeAreaInsets
+		// Life is hard when you're inverted :/
+		let offset = chatTableViewController.isAtTop ? -safeInsets.bottom : safeInsets.bottom
+		changeTableViewContentInset(-safeInsets.bottom,
+																offset: offset,
+																with: event)
+	}
+	
+	func keyboardWillHide(with event: KeyboardEvent) {
+		let safeInsets = view.safeAreaInsets
+		// Don't ask, I don't care
+		// To many issues around trying to get this to work in a sane way
+		changeTableViewContentInset(safeInsets.bottom,
+																offset: -safeInsets.bottom,
+																with: event)
+	}
 	
 }

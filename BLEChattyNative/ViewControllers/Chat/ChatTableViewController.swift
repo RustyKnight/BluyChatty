@@ -10,6 +10,8 @@ import UIKit
 
 class ChatTableViewController: UITableViewController {
 	
+	var keyboardHelper: KeyboardHelper = KeyboardHelper()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -20,6 +22,18 @@ class ChatTableViewController: UITableViewController {
 			insets.top = 0
 			tableView.contentInset = insets
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		keyboardHelper.delegate = self
+		keyboardHelper.isInstalled = true
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		keyboardHelper.isInstalled = false
+		keyboardHelper.delegate = nil
 	}
 	
 	// MARK: - Table view data source
@@ -74,14 +88,24 @@ class ChatTableViewController: UITableViewController {
 		return UIView(frame: CGRect.zero)
 	}
 	
+//	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//		tableView.deselectRow(at: indexPath, animated: false)
+//	}
+	
+	override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		return false
+	}
+	
+	// MARK: - Scroll Support
+	
 	public var isAtTop: Bool {
-		let yPos = tableView.contentOffset.y
+		let yPos = abs(tableView.contentOffset.y)
 		return yPos == tableView.contentInset.top
 	}
 	
 	public var isAtBottom: Bool {
 		let height = tableView.frame.size.height
-		let yOffset = tableView.contentOffset.y
+		let yOffset = abs(tableView.contentOffset.y)
 		let distanceFromBottom = tableView.contentSize.height - yOffset
 		return distanceFromBottom < height
 	}
@@ -138,6 +162,32 @@ class ChatTableViewController: UITableViewController {
 		}
 		self.afterScroll = nil
 		afterScroll()
+	}
+
+}
+
+// MARK: - KeyboardHelperDelegate
+
+extension ChatTableViewController: KeyboardHelperDelegate {
+	
+	func keyboardStateChanged(with event: KeyboardEvent) {
+//		guard let duration = event.duration, let curve = event.curve else {
+//			self.updateMessageEntryPosition()
+//			return
+//		}
+//		UIView.animate(withDuration: duration, delay: 0, options: [curve], animations: {
+//			self.updateMessageEntryPosition()
+//			self.view.layoutIfNeeded()
+//		}) { (completed) in
+//		}
+	}
+	
+	func keyboardWillHide(with event: KeyboardEvent) {
+		keyboardStateChanged(with: event)
+	}
+	
+	func keyboardWillShow(with event: KeyboardEvent) {
+		keyboardStateChanged(with: event)
 	}
 
 }

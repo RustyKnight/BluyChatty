@@ -33,6 +33,9 @@ class DefaultChatClient: ChatClient {
 	}
 	var avatar: String {
 		let deviceData = name.components(separatedBy: "|")
+		if deviceData.count == 1 {
+			return "🤖"
+		}
 		return deviceData[1]
 	}
 	var peripheral: CBPeripheral

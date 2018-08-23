@@ -55,13 +55,13 @@ class NameViewController: UIViewController {
 		}
 		firstLoad = false
 		DispatchQueue.main.async {
-			UIView.animate(withDuration: 1.0, animations: {
+			UIView.animate(withDuration: 1.0, delay: 0.0, options: [], animations: {
 				self.welcomeLabel.alpha = 1.0
 			}, completion: { (completed) in
 				self.fieldsVerticalSpacingConstraint.constant = 8
-				UIView.animate(withDuration: 0.3) {
+				UIView.animate(withDuration: 0.5, delay: 0.0, options: [UIView.AnimationOptions.curveEaseOut], animations: {
 					self.view.layoutIfNeeded()
-				}
+				}, completion: nil)
 			})
 		}
 	}

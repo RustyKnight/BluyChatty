@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LogWrapperKit
 
 // I'm not a fan of this, but this will allow us to maintain state beyond the capabailities of the the extension API
 fileprivate var cache = NSHashTable<UIViewController>(options: .weakMemory)
@@ -68,13 +69,13 @@ extension UIViewController {
 		guard let endBounds = keyboardEndBounds(from: notification) else {
 			return
 		}
-		//		guard let beginingBounds = keyboardBeginingBounds(from: notification) else {
-		//			return
-		//		}
-		//		let delta = endBounds.origin.y - beginingBounds.origin.y
 		var frame = view.frame
 		var needsDisplacement = true
 		
+		guard frame.origin.y != -endBounds.height else {
+			return
+		}
+
 		// Only display the view if the keyboard covers the current responder
 		if let currentResponder = view.firstResponder {
 			let rect = currentResponder.convert(currentResponder.frame, to: view)
@@ -101,6 +102,7 @@ extension UIViewController {
 	}
 	
 	@objc func keyboardDisplacerWillHide(_ notification: Notification) {
+		log(debug: "")
 		guard let view = view else {
 			return
 		}

@@ -15,6 +15,8 @@ class MessageViewController: UIViewController {
 	@IBOutlet weak var messageTextField: UITextField!
 	@IBOutlet weak var sendButton: UIButton!
 	
+	var keyboardHelper: KeyboardHelper = KeyboardHelper()
+	
 	var currentInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 	
 	override func viewDidLoad() {
@@ -23,18 +25,41 @@ class MessageViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		keyboardHelper.delegate = self
+		keyboardHelper.isInstalled = true
 		bottomConstraint.constant = currentInsets.bottom + 8
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-//		if #available(iOS 11, *) {
-//			let insets = view.safeAreaInsets
-//			log(debug: "inserts = \(insets)")
-//			bottomConstraint.constant = insets.bottom + 8
-//		}
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		keyboardHelper.isInstalled = false
+		keyboardHelper.delegate = nil
 	}
 
 	@IBAction func sendMessage(_ sender: Any) {
 	}
+}
+
+extension MessageViewController: KeyboardHelperDelegate {
+
+	func changeBottomConstraintTo(_ constant: CGFloat, with event: KeyboardEvent) {
+		guard let duration = event.duration, let curve = event.curve else {
+			bottomConstraint.constant = constant
+			return
+		}
+		self.bottomConstraint.constant = constant
+		UIView.animate(withDuration: duration, delay: 0, options: [curve], animations: {
+			self.view.layoutIfNeeded()
+		}) { (completed) in
+		}
+	}
+	
+	func keyboardWillShow(with event: KeyboardEvent) {
+		changeBottomConstraintTo(8, with: event)
+	}
+	
+	func keyboardWillHide(with event: KeyboardEvent) {
+		changeBottomConstraintTo(currentInsets.bottom + 8, with: event)
+	}
+	
 }
