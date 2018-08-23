@@ -34,7 +34,7 @@ class ChatViewController: UIViewController {
 		
 		title = "\(client.avatar) \(client.displayName)"
 		
-		dismissKeyboardOnTap = true
+		dismissKeyboardOnTap = false
 		displaceOnKeyboard = true
 		
 		keyboardHelper.delegate = self
@@ -171,7 +171,7 @@ extension ChatViewController: KeyboardHelperDelegate {
 		}
 		
 		if message.client == client {
-			
+			chatTableViewController.add(message)
 		} else {
 			let name = message.client.displayName
 			let text = message.text

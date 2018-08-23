@@ -26,6 +26,7 @@
 		123A145D212E97AA00EBEA5A /* DurationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A145C212E97AA00EBEA5A /* DurationAnimator.swift */; };
 		123A145F212E97EC00EBEA5A /* LinearAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A145E212E97EC00EBEA5A /* LinearAnimator.swift */; };
 		123A1461212E981F00EBEA5A /* Range+Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1460212E981F00EBEA5A /* Range+Animator.swift */; };
+		123A1463212F778D00EBEA5A /* UIResponder+CurrentResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1462212F778D00EBEA5A /* UIResponder+CurrentResponder.swift */; };
 		124FDC0C212A61A500633FE7 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */; };
 		124FDC0F212A621100633FE7 /* ChatClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC0E212A621100633FE7 /* ChatClient.swift */; };
 		124FDC12212A66B300633FE7 /* BTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC11212A66B300633FE7 /* BTService.swift */; };
@@ -114,6 +115,7 @@
 		123A145C212E97AA00EBEA5A /* DurationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationAnimator.swift; sourceTree = "<group>"; };
 		123A145E212E97EC00EBEA5A /* LinearAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearAnimator.swift; sourceTree = "<group>"; };
 		123A1460212E981F00EBEA5A /* Range+Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Animator.swift"; sourceTree = "<group>"; };
+		123A1462212F778D00EBEA5A /* UIResponder+CurrentResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+CurrentResponder.swift"; sourceTree = "<group>"; };
 		124FDC0B212A61A500633FE7 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		124FDC0E212A621100633FE7 /* ChatClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClient.swift; sourceTree = "<group>"; };
 		124FDC11212A66B300633FE7 /* BTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTService.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */,
 				123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */,
 				123A1460212E981F00EBEA5A /* Range+Animator.swift */,
+				123A1462212F778D00EBEA5A /* UIResponder+CurrentResponder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				12B82DD9212A4A9B005C79F6 /* UIView+FirstResponder.swift in Sources */,
 				123A1440212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift in Sources */,
 				123A1455212E4CAE00EBEA5A /* IncomingMessageTableViewCell.swift in Sources */,
+				123A1463212F778D00EBEA5A /* UIResponder+CurrentResponder.swift in Sources */,
 				123A145D212E97AA00EBEA5A /* DurationAnimator.swift in Sources */,
 				123A1451212BD40B00EBEA5A /* MessageViewController.swift in Sources */,
 				123A145B212E977B00EBEA5A /* Animator.swift in Sources */,

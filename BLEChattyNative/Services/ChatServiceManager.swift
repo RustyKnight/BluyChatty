@@ -243,6 +243,7 @@ extension ChatServiceManager: CBPeripheralDelegate {
 	}
 	
 	func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+		// Message desperetly needs it's own UUID
 		log(debug: "")
 		if let error = error {
 			log(error: "didDiscoverCharacteristicsFor error: \(error)")
@@ -257,14 +258,31 @@ extension ChatServiceManager: CBPeripheralDelegate {
 			return
 		}
 		
-		for characteristic in characteristics {
-			log(error: "\(characteristic.uuid)")
+//		for characteristic in characteristics {
+//			log(error: "\(characteristic.uuid)")
+//		}
+
+		guard let client = BTService.shared.client(for: peripheral) else {
+			return
 		}
+
+		let device = entry.0
+		let data = entry.1
+
+		let text = String(data: data, encoding: .utf8)!
+		let message = DefaultMessage(text: text, direction: .outgoing, status: .delivered)
 		
+		let userInfo: [String: Any] = [
+			MessageKeys.client: client,
+			MessageKeys.message: message
+		]
+
 		characteristics = characteristics.filter { $0.uuid.isEqual(ChatServiceManager.RX_UUID) }
 		guard characteristics.count > 0 else {
 			// Do we really care??
 			log(debug: "No chat characteristics avaliable for service \(service.uuid)")
+			message.status = .failed
+			NotificationCenter.default.post(name: ChatServiceManager.MessageDelivered, object: nil, userInfo: userInfo)
 			return
 		}
 		
@@ -272,24 +290,12 @@ extension ChatServiceManager: CBPeripheralDelegate {
 			peripheral.setNotifyValue(true, for: char)
 		}
 		
-		let device = entry.0
-		let data = entry.1
-		
 		log(debug: "Write: [\(String(data: data, encoding: .utf8) ?? "?")] to \(peripheral.identifier)")
 		
 		for characteristic in characteristics {
 			peripheral.writeValue(data, for: characteristic, type: CBCharacteristicWriteType.withResponse)
 		}
 		removeFirstMessage(for: peripheral)
-		guard let client = BTService.shared.client(for: peripheral) else {
-			return
-		}
-		let text = String(data: data, encoding: .utf8)!
-		let message = DefaultMessage(text: text, direction: .outgoing, status: .delivered)
-		let userInfo: [String: Any] = [
-			MessageKeys.client: client,
-			MessageKeys.message: message
-		]
 		NotificationCenter.default.post(name: ChatServiceManager.MessageDelivered, object: nil, userInfo: userInfo)
 		
 		guard !hasMoreMessages(for: peripheral) else {

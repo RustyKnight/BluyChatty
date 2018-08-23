@@ -45,6 +45,7 @@ class MessageViewController: UIViewController {
 			return
 		}
 		messageTextField.text = nil
+		messageTextField.resignFirstResponder()
 		delegate?.send(message: text)
 	}
 }

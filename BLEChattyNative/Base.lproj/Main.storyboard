@@ -274,10 +274,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOs-iQ-ARr">
-                                            <rect key="frame" x="20" y="15" width="58" height="75"/>
+                                            <rect key="frame" x="20" y="15" width="74" height="75"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-Kz-Eh6">
-                                                    <rect key="frame" x="8" y="8" width="42" height="59"/>
+                                                    <rect key="frame" x="16" y="8" width="42" height="59"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -285,10 +285,10 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.7725490196" green="0.78039215689999997" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="5yk-Kz-Eh6" secondAttribute="trailing" constant="8" id="6yf-AF-aKo"/>
+                                                <constraint firstAttribute="trailing" secondItem="5yk-Kz-Eh6" secondAttribute="trailing" constant="16" id="6yf-AF-aKo"/>
                                                 <constraint firstItem="5yk-Kz-Eh6" firstAttribute="top" secondItem="BOs-iQ-ARr" secondAttribute="top" constant="8" id="aYx-VB-O5Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="5yk-Kz-Eh6" secondAttribute="bottom" constant="8" id="bTa-Lx-ZDi"/>
-                                                <constraint firstItem="5yk-Kz-Eh6" firstAttribute="leading" secondItem="BOs-iQ-ARr" secondAttribute="leading" constant="8" id="rX6-Zm-lMb"/>
+                                                <constraint firstItem="5yk-Kz-Eh6" firstAttribute="leading" secondItem="BOs-iQ-ARr" secondAttribute="leading" constant="16" id="rX6-Zm-lMb"/>
                                             </constraints>
                                         </view>
                                     </subviews>

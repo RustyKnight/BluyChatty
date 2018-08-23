@@ -28,12 +28,15 @@ class ChatTableViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		dismissKeyboardOnTap = true
+		
 		keyboardHelper.delegate = self
 		keyboardHelper.isInstalled = true
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
+		dismissKeyboardOnTap = false
 		keyboardHelper.isInstalled = false
 		keyboardHelper.delegate = nil
 	}

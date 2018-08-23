@@ -17,10 +17,8 @@ class IncomingMessageTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		messageBackground.backgroundColor = Theme.dark
+		messageBackground.backgroundColor = UIColor.lightGray
 		messageBackground.layer.cornerRadius = 16
-//		backgroundColor = Theme.background
-		backgroundColor = UIColor.red
 		messageLabel.backgroundColor = nil
 		messageLabel.isOpaque = false
 		

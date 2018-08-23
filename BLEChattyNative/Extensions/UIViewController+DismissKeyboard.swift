@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import LogWrapperKit
 
 // I'm not a fan of this, but this will allow us to maintain state beyond the capabailities of the the extension API
 fileprivate var cache = NSMapTable<UIViewController, UITapGestureRecognizer>(keyOptions: .weakMemory, valueOptions: .weakMemory)
@@ -51,7 +52,9 @@ extension UIViewController {
 	}
 	
 	@objc private func hideKeyboardLater() {
+		log(debug: "Hide later")
 		DispatchQueue.main.async {
+			log(debug: "Hide now")
 			self.hideKeyboard()
 		}
 	}

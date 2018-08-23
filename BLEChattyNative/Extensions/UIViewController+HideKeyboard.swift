@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import LogWrapperKit
 
 extension UIViewController {
 	
 	@objc func hideKeyboard() {
-		view.endEditing(true)
+		UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
 	}
 	
 }
