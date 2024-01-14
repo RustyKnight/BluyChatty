@@ -7,7 +7,7 @@
 //
 import Foundation
 import CoreBluetooth
-import LogWrapperKit
+import Cadmus
 
 enum ChatServiceManagerError: String, Error, CustomStringConvertible {
 	case messageConverstionFailed = "Failed to convert message to data"

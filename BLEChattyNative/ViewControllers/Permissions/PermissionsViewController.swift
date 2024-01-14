@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 import UserNotifications
-import BeamUserNotificationKit
 import Hydra
-import LogWrapperKit
+import Cadmus
 import CoreBluetooth
+import Hermes
 
 class PermissionsViewController: UIViewController {
 	
@@ -57,21 +57,28 @@ class PermissionsViewController: UIViewController {
 		if !CBPeripheralManager.requiresAuthorisation {
 			hideBluetooth()
 		}
-		UNUserNotificationCenter.current().settings().then(in: .main) { (settings) in
-			log(debug: "authorizationStatus = \(settings.authorizationStatus)")
-			if settings.authorizationStatus != .notDetermined {
-				self.hideNotifications()
-			}
-		}
+        UNUserNotificationCenter
+            .current()
+            .settings()
+            .done(on: .main) { (settings) in
+                log(debug: "authorizationStatus = \(settings.authorizationStatus)")
+                if settings.authorizationStatus != .notDetermined {
+                    self.hideNotifications()
+                }
+            }
+            .cauterize()
 	}
 	
 	func requestNotificationPermissions() {
-		UNUserNotificationCenter.current().authorise(options: [.alert, .badge, .sound]).always {
-		}.catch { (error) -> (Void) in
-				log(debug: "Aurthorisation request faield: \(error)")
-		}
+        UNUserNotificationCenter
+            .current()
+            .authorise(options: [.alert, .badge, .sound])
+            .asVoid()
+            .catch { (error) -> (Void) in
+                log(debug: "Aurthorisation request faield: \(error)")
+            }
 		
-		_ = NotificationServiceManager.shared.set(categories: [])//NotificationServiceManager.shared.categories)
+        NotificationServiceManager.shared.set(categories: [])
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,14 +88,18 @@ class PermissionsViewController: UIViewController {
 	}
 	
 	@objc func notificationPermissionsDidChange(_ notification: Notification) {
-		UNUserNotificationCenter.current().settings().then(in: .main) { (settings) in
-			log(debug: "authorizationStatus = \(settings.authorizationStatus)")
-			if settings.authorizationStatus == .denied {
-				self.notificationsError()
-			} else {
-				self.hideNotifications()
-			}
-		}
+        UNUserNotificationCenter
+            .current()
+            .settings()
+            .done(on: .main) { (settings) in
+                log(debug: "authorizationStatus = \(settings.authorizationStatus)")
+                if settings.authorizationStatus == .denied {
+                    self.notificationsError()
+                } else {
+                    self.hideNotifications()
+                }
+            }
+            .cauterize()
 	}
 	
 	func notificationsError() {

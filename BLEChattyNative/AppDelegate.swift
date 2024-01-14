@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LogWrapperKit
+import Cadmus
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

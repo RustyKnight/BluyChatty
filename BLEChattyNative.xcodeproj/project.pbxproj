@@ -3,14 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		123231D6212A748B0085E90F /* LogWrapperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D4212A748B0085E90F /* LogWrapperKit.framework */; };
-		123231D7212A748B0085E90F /* LogWrapperKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D4212A748B0085E90F /* LogWrapperKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		123231D8212A748B0085E90F /* BeamUserNotificationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */; };
-		123231D9212A748B0085E90F /* BeamUserNotificationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		123A1440212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A143F212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift */; };
 		123A1444212B8DE000EBEA5A /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */; };
 		123A1446212B8E6400EBEA5A /* UIAlertAction+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */; };
@@ -32,10 +28,6 @@
 		124FDC12212A66B300633FE7 /* BTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FDC11212A66B300633FE7 /* BTService.swift */; };
 		128DE9D2212A87E700EE757F /* ChatServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9D1212A87E700EE757F /* ChatServiceManager.swift */; };
 		128DE9D4212A889600EE757F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9D3212A889600EE757F /* UserData.swift */; };
-		128DE9D6212A918000EE757F /* Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D5212A918000EE757F /* Hydra.framework */; };
-		128DE9D7212A918000EE757F /* Hydra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D5212A918000EE757F /* Hydra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		128DE9D9212A91B400EE757F /* SwiftEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D8212A91B400EE757F /* SwiftEventBus.framework */; };
-		128DE9DA212A91B400EE757F /* SwiftEventBus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 128DE9D8212A91B400EE757F /* SwiftEventBus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		128DE9DC212A95A200EE757F /* ChatClientsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9DB212A95A200EE757F /* ChatClientsCollectionViewController.swift */; };
 		128DE9DE212A981100EE757F /* UICollectionView+BackgroundMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9DD212A981100EE757F /* UICollectionView+BackgroundMessage.swift */; };
 		128DE9E0212B6EF500EE757F /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128DE9DF212B6EF500EE757F /* PermissionsViewController.swift */; };
@@ -61,6 +53,9 @@
 		12B82DD5212A4A16005C79F6 /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD4212A4A16005C79F6 /* UIViewController+HideKeyboard.swift */; };
 		12B82DD7212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD6212A4A33005C79F6 /* UIViewController+KeyboardDisplacer.swift */; };
 		12B82DD9212A4A9B005C79F6 /* UIView+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B82DD8212A4A9B005C79F6 /* UIView+FirstResponder.swift */; };
+		7013CF822B53AC0F004D3A6C /* Cadmus in Frameworks */ = {isa = PBXBuildFile; productRef = 7013CF812B53AC0F004D3A6C /* Cadmus */; };
+		7013CF852B53AC8D004D3A6C /* Hydra in Frameworks */ = {isa = PBXBuildFile; productRef = 7013CF842B53AC8D004D3A6C /* Hydra */; };
+		7065BE5C2B53B65000F8452D /* Hermes in Frameworks */ = {isa = PBXBuildFile; productRef = 7065BE5B2B53B65000F8452D /* Hermes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,10 +82,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				128DE9DA212A91B400EE757F /* SwiftEventBus.framework in Embed Frameworks */,
-				128DE9D7212A918000EE757F /* Hydra.framework in Embed Frameworks */,
-				123231D9212A748B0085E90F /* BeamUserNotificationKit.framework in Embed Frameworks */,
-				123231D7212A748B0085E90F /* LogWrapperKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,8 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		123231D4212A748B0085E90F /* LogWrapperKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LogWrapperKit.framework; path = Carthage/Build/iOS/LogWrapperKit.framework; sourceTree = "<group>"; };
-		123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BeamUserNotificationKit.framework; path = Carthage/Build/iOS/BeamUserNotificationKit.framework; sourceTree = "<group>"; };
 		123A143F212B85CE00EBEA5A /* CBPeripheralManager+Authorised.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBPeripheralManager+Authorised.swift"; sourceTree = "<group>"; };
 		123A1443212B8DE000EBEA5A /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		123A1445212B8E6400EBEA5A /* UIAlertAction+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Options.swift"; sourceTree = "<group>"; };
@@ -121,8 +110,6 @@
 		124FDC11212A66B300633FE7 /* BTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTService.swift; sourceTree = "<group>"; };
 		128DE9D1212A87E700EE757F /* ChatServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatServiceManager.swift; sourceTree = "<group>"; };
 		128DE9D3212A889600EE757F /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		128DE9D5212A918000EE757F /* Hydra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hydra.framework; path = Carthage/Build/iOS/Hydra.framework; sourceTree = "<group>"; };
-		128DE9D8212A91B400EE757F /* SwiftEventBus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEventBus.framework; path = Carthage/Build/iOS/SwiftEventBus.framework; sourceTree = "<group>"; };
 		128DE9DB212A95A200EE757F /* ChatClientsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClientsCollectionViewController.swift; sourceTree = "<group>"; };
 		128DE9DD212A981100EE757F /* UICollectionView+BackgroundMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+BackgroundMessage.swift"; sourceTree = "<group>"; };
 		128DE9DF212B6EF500EE757F /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
@@ -161,10 +148,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				128DE9D9212A91B400EE757F /* SwiftEventBus.framework in Frameworks */,
-				128DE9D6212A918000EE757F /* Hydra.framework in Frameworks */,
-				123231D8212A748B0085E90F /* BeamUserNotificationKit.framework in Frameworks */,
-				123231D6212A748B0085E90F /* LogWrapperKit.framework in Frameworks */,
+				7013CF822B53AC0F004D3A6C /* Cadmus in Frameworks */,
+				7065BE5C2B53B65000F8452D /* Hermes in Frameworks */,
+				7013CF852B53AC8D004D3A6C /* Hydra in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +226,6 @@
 		12B82D7F212A26B6005C79F6 = {
 			isa = PBXGroup;
 			children = (
-				128DE9D8212A91B400EE757F /* SwiftEventBus.framework */,
-				128DE9D5212A918000EE757F /* Hydra.framework */,
-				123231D5212A748B0085E90F /* BeamUserNotificationKit.framework */,
-				123231D4212A748B0085E90F /* LogWrapperKit.framework */,
 				12B82D8A212A26B6005C79F6 /* BLEChattyNative */,
 				12B82D9F212A26B7005C79F6 /* BLEChattyNativeTests */,
 				12B82DAA212A26B7005C79F6 /* BLEChattyNativeUITests */,
@@ -376,6 +358,11 @@
 			dependencies = (
 			);
 			name = BLEChattyNative;
+			packageProductDependencies = (
+				7013CF812B53AC0F004D3A6C /* Cadmus */,
+				7013CF842B53AC8D004D3A6C /* Hydra */,
+				7065BE5B2B53B65000F8452D /* Hermes */,
+			);
 			productName = BLEChattyNative;
 			productReference = 12B82D88212A26B6005C79F6 /* BLEChattyNative.app */;
 			productType = "com.apple.product-type.application";
@@ -422,8 +409,9 @@
 		12B82D80212A26B6005C79F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Beam Communications";
 				TargetAttributes = {
 					12B82D87212A26B6005C79F6 = {
@@ -453,6 +441,11 @@
 				Base,
 			);
 			mainGroup = 12B82D7F212A26B6005C79F6;
+			packageReferences = (
+				7013CF802B53AC0F004D3A6C /* XCRemoteSwiftPackageReference "Cadmus" */,
+				7013CF832B53AC8D004D3A6C /* XCRemoteSwiftPackageReference "Hydra" */,
+				7065BE5A2B53B65000F8452D /* XCRemoteSwiftPackageReference "Hermes" */,
+			);
 			productRefGroup = 12B82D89212A26B6005C79F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -617,6 +610,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -628,6 +622,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -642,7 +637,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -678,6 +673,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -689,6 +685,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -697,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -718,6 +715,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = BLEChattyNative/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,6 +739,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = BLEChattyNative/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -875,6 +874,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7013CF802B53AC0F004D3A6C /* XCRemoteSwiftPackageReference "Cadmus" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RustyKnight/Cadmus";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		7013CF832B53AC8D004D3A6C /* XCRemoteSwiftPackageReference "Hydra" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/Hydra";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.6;
+			};
+		};
+		7065BE5A2B53B65000F8452D /* XCRemoteSwiftPackageReference "Hermes" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RustyKnight/Hermes";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7013CF812B53AC0F004D3A6C /* Cadmus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7013CF802B53AC0F004D3A6C /* XCRemoteSwiftPackageReference "Cadmus" */;
+			productName = Cadmus;
+		};
+		7013CF842B53AC8D004D3A6C /* Hydra */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7013CF832B53AC8D004D3A6C /* XCRemoteSwiftPackageReference "Hydra" */;
+			productName = Hydra;
+		};
+		7065BE5B2B53B65000F8452D /* Hermes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7065BE5A2B53B65000F8452D /* XCRemoteSwiftPackageReference "Hermes" */;
+			productName = Hermes;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 12B82D80212A26B6005C79F6 /* Project object */;
 }

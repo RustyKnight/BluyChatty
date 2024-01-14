@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreBluetooth
-import LogWrapperKit
+import Cadmus
 
 extension NSNotification.Name {
 	public static let BTStateChanged: NSNotification.Name = NSNotification.Name("BT.stateChanged")

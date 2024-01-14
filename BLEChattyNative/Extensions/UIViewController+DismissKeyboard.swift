@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import LogWrapperKit
+import Cadmus
 
 // I'm not a fan of this, but this will allow us to maintain state beyond the capabailities of the the extension API
 fileprivate var cache = NSMapTable<UIViewController, UITapGestureRecognizer>(keyOptions: .weakMemory, valueOptions: .weakMemory)

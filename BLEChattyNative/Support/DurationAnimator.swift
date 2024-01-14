@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import LogWrapperKit
+import Cadmus
 
 // MARK: DurationAnimation
 // An animation with a specific time frame to run in
@@ -48,7 +48,7 @@ public class DurationAnimator: Animator {
 	}
 	
 	override public func tick() {
-		guard let startedAt = startedAt else {
+        guard startedAt != nil else {
 			return
 		}
 		defer {

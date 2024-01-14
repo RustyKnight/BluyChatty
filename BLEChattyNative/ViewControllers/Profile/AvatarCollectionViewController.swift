@@ -54,7 +54,7 @@ class AvatarCollectionViewController: UICollectionViewController {
 		guard segue.identifier == "Segue.clients" else {
 			return
 		}
-		guard let destination = segue.destination as? ChatClientsCollectionViewController else {
+        guard segue.destination is ChatClientsCollectionViewController else {
 			return
 		}
 		guard let name = userName, let avatar = avatar else {

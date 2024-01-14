@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import LogWrapperKit
+import Cadmus
 import UserNotifications
-import BeamUserNotificationKit
 import Hydra
 import CoreBluetooth
+import Hermes
 
 private let reuseIdentifier = "Cell.user"
 
@@ -66,7 +66,7 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 			return
 		}
 		let indicies: [IndexPath] = [IndexPath(row: index, section: 0)]
-//		collectionView.reloadItems(at: indicies)
+		collectionView.reloadItems(at: indicies)
 	}
 	
 	@objc func cleanUp() {
@@ -202,10 +202,13 @@ class ChatClientsCollectionViewController: UICollectionViewController {
 		
 		log(debug: "Message = \(text);\n\tfrom: \(name)")
 		
-		NotificationServiceManager.shared.add(identifier: UUID().uuidString,
-																					title: "\(name) said", body: text).catch { (error) -> (Void) in
-			log(debug: "Failed to deliver notification \(error)")
-		}
+        NotificationServiceManager.shared.add(
+            identifier: UUID().uuidString,
+            title: "\(name) said", body: text
+        )
+        .catch { (error) -> (Void) in
+            log(debug: "Failed to deliver notification \(error)")
+        }
 	}
 
 	// MARK: - Navigation

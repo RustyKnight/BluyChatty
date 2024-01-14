@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import LogWrapperKit
+import Cadmus
 
 extension UIViewController {
 	

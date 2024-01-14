@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LogWrapperKit
+import Cadmus
 
 class MessageViewController: UIViewController {
 	

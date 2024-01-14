@@ -8,15 +8,15 @@
 
 import Foundation
 import CoreBluetooth
-import LogWrapperKit
+import Cadmus
 
-extension CBPeripheralManagerAuthorizationStatus: CustomStringConvertible {
+extension CBManagerAuthorization: CustomStringConvertible {
 	public var description: String {
 		switch self {
-		case .authorized: return "authorized"
-		case .denied: return "denied"
-		case .notDetermined: return "notDetermined"
-		case .restricted: return "restricted"
+        case .allowedAlways: return "allowedAlways"
+        case .denied: return "denied"
+        case .notDetermined: return "notDetermined"
+        case .restricted: return "restricted"
 		}
 	}
 }
@@ -24,19 +24,19 @@ extension CBPeripheralManagerAuthorizationStatus: CustomStringConvertible {
 extension CBPeripheralManager {
 	
 	static var requiresAuthorisation: Bool {
-		return CBPeripheralManager.authorizationStatus() == .notDetermined
+        CBPeripheralManager.authorization == .notDetermined
 	}
 	
 	static var isAuthroised: Bool {
-		return CBPeripheralManager.authorizationStatus() == .authorized
+        CBPeripheralManager.authorization == .allowedAlways
 	}
 	
 	static var isDenied: Bool {
-		return CBPeripheralManager.authorizationStatus() == .denied
+        CBPeripheralManager.authorization == .denied
 	}
 	
 	static var isRestricted: Bool {
-		return CBPeripheralManager.authorizationStatus() == .restricted
+        CBPeripheralManager.authorization == .restricted
 	}
 
 }
